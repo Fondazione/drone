@@ -30,32 +30,98 @@ function fly(robot) {
     bot = robot;
     bot.drone.disableEmergency();
     bot.drone.ftrim();
-    bot.drone.takeoff();
-
-    var droneSpeed = 0.1;
-
-    addToTimeline(1, function() {
+    bot.drone.takeoff(function(){
         bot.drone.hover();
     });
 
-    addToTimeline(1, function() {
-        bot.drone.left(droneSpeed);
+    var droneSpeed = 0.3;
+
+    addToTimeline(4, function() {
+        bot.drone.forward(droneSpeed);
+        console.log("Forward");
+    });
+
+    addToTimeline(3, function() {
+        bot.drone.hover();
+        console.log("Hover");
     });
 
     addToTimeline(1, function() {
+        bot.drone.right(droneSpeed);
+        console.log("Right");
+    });
+
+    addToTimeline(2, function() {
         bot.drone.hover();
+        console.log("Hover");
     });
 
     addToTimeline(1, function() {
         bot.drone.forward(droneSpeed);
+        console.log("Forward");
+    });
+
+    addToTimeline(4, function() {
+        bot.drone.hover();
+        console.log("Hover");
     });
 
     addToTimeline(1, function() {
-        bot.drone.land();
+        bot.drone.left(droneSpeed);
+        console.log("Left");
     });
 
-    addToTimeline(5, function() {
-        bot.drone.stop();
+    addToTimeline(2, function() {
+        bot.drone.hover();
+        console.log("Hover");
+    });
+
+    addToTimeline(1, function() {
+        bot.drone.left(droneSpeed);
+        console.log("Left");
+    });
+
+    addToTimeline(2, function() {
+        bot.drone.hover();
+        console.log("Hover");
+    });
+
+    addToTimeline(1, function() {
+        bot.drone.back(droneSpeed);
+        console.log("Back");
+    });
+
+    addToTimeline(4, function() {
+        bot.drone.hover();
+        console.log("Hover");
+    });
+
+    addToTimeline(1, function() {
+        bot.drone.right(droneSpeed);
+        console.log("Right");
+    });
+
+    addToTimeline(2, function() {
+        bot.drone.hover();
+        console.log("Hover");
+    });
+
+    addToTimeline(1, function() {
+        bot.drone.back(droneSpeed);
+        console.log("Back");
+    });
+
+    addToTimeline(3, function() {
+        bot.drone.hover();
+        console.log("Hover");
+    });
+
+    addToTimeline(1, function() {
+        bot.drone.land(function(){
+            bot.drone.stop();
+            console.log("Stop");
+        });
+        console.log("Land");
     });
 
     /*bot.drone.right (0.5);
